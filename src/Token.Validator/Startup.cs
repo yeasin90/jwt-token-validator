@@ -6,11 +6,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Protocols;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Token.Validator.Configurations;
+using Token.Validator.Services;
 
 namespace Token.Validator
 {
@@ -29,6 +32,8 @@ namespace Token.Validator
             services.AddControllers();
 
             services.Configure<AuthorizationServerConfig>(Configuration.GetSection(nameof(AuthorizationServerConfig)));
+
+            services.AddScoped<IConfigurationManager<OpenIdConnectConfiguration>, CustomOpenIdConfigurationManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
