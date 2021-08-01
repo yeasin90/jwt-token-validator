@@ -10,4 +10,6 @@ RnD project for validating JWT token from JWK key sets
 
 [JWT Token signing basics using RSA (asymmetric encryption)](https://vmsdurano.com/-net-core-3-1-signing-jwt-with-rsa/)
 
+[Example repo on **OpenIdConnectConfiguration** object population from jwk url](https://github.com/NetDevPack/Security.JwtExtensions)
+
 [.net core stratup initialization with Labmda](https://www.thecodebuzz.com/initialize-instances-within-configservices-in-startup/)
