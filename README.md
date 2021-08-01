@@ -1,4 +1,4 @@
-# token-validator
+# JWT token validator using JWKs
 RnD project for validating JWT token from JWK key sets
 
 ### Steps: 
