@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Token.Validator.Configurations;
 
 namespace Token.Validator
 {
@@ -26,6 +27,8 @@ namespace Token.Validator
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.Configure<AuthorizationServerConfig>(Configuration.GetSection(nameof(AuthorizationServerConfig)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
