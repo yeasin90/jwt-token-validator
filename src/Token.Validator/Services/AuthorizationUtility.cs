@@ -3,18 +3,16 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Threading.Tasks;
 using Token.Validator.Configurations;
 
 namespace Token.Validator.Services
 {
-    public class AuthorizationService : IAuthorizationService
+    public class AuthorizationUtility : IAuthorizationUtility
     {
         private readonly AuthorizationServerConfig _authServerConfig;
         public ICollection<SecurityKey> SigningKeys { get; set; }
 
-        public AuthorizationService(IOptions<AuthorizationServerConfig> authServerConfig)
+        public AuthorizationUtility(IOptions<AuthorizationServerConfig> authServerConfig)
         {
             _authServerConfig = authServerConfig.Value;
         }

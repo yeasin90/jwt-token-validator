@@ -2,7 +2,7 @@
 
 namespace Token.Validator.Services
 {
-    public interface IAuthorizationService
+    public interface IAuthorizationUtility
     {
         JwtSecurityToken ValidateJwtToken(string jwtToken);
     }

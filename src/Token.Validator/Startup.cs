@@ -1,19 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using Token.Validator.Configurations;
 using Token.Validator.Services;
 
@@ -35,13 +28,13 @@ namespace Token.Validator
 
             services.Configure<AuthorizationServerConfig>(Configuration.GetSection(nameof(AuthorizationServerConfig)));
 
-            services.AddScoped<IConfigurationManager<OpenIdConnectConfiguration>, CustomOpenIdConfigurationManager>();
+            services.AddSingleton<IConfigurationManager<OpenIdConnectConfiguration>, CustomOpenIdConfigurationManager>();
 
-            services.AddScoped<IAuthorizationService, AuthorizationService>(opt =>
+            services.AddSingleton<IAuthorizationUtility, AuthorizationUtility>(opt =>
             {
                 var openIdConfig = opt.GetRequiredService<IConfigurationManager<OpenIdConnectConfiguration>>();
                 var authConfig = opt.GetService<IOptions<AuthorizationServerConfig>>();
-                var obj = new AuthorizationService(authConfig)
+                var obj = new AuthorizationUtility(authConfig)
                 {
                     SigningKeys = openIdConfig.GetConfigurationAsync(CancellationToken.None).Result.SigningKeys
                 };
