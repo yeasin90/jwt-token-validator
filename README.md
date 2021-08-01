@@ -1,6 +1,10 @@
 # token-validator
 RnD project for validating JWT token from JWK key sets
 
+### Steps: 
+- Set your authorization server address in **appsettings.Development.json** _(Host property of AuthorizationServerConfig)_
+- Run the project and hit : https://localhost:44347/api/token/validate?jwtToken={your_jwt_token}
+
 ### References: 
 [Sample OpenId discovery document](https://demo.identityserver.io/.well-known/openid-configuration)
 
