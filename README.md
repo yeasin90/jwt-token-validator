@@ -1,6 +1,7 @@
 # token-validator
-RnD project for JWT token Validator
+RnD project for validating JWT token from JWK key sets
 
+### References: 
 [Sample OpenId discovery document with JWKs url](https://demo.identityserver.io/.well-known/openid-configuration)
 
 [JWT Token validation steps using JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/)
